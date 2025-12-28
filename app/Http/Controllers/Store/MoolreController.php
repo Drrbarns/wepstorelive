@@ -368,12 +368,16 @@ class MoolreController extends Controller
             Log::info('Moolre store webhook received', $request->all());
 
             $data = $request->all();
-            $externalRef = $data['externalref'] ?? $data['external_ref'] ?? $request->input('externalref');
+
+            // Handle nested data structure from Moolre
+            $nestedData = $data['data'] ?? [];
+            $externalRef = $nestedData['externalref'] ?? $nestedData['external_ref'] ?? $data['externalref'] ?? $data['external_ref'] ?? $request->input('externalref');
             $status = $data['status'] ?? null;
             $code = $data['code'] ?? '';
+            $txStatus = $nestedData['txstatus'] ?? null;
 
             if (!$externalRef) {
-                Log::error('Moolre webhook missing external reference');
+                Log::error('Moolre webhook missing external reference', $data);
                 return response()->json(['status' => 'error', 'message' => 'Missing reference'], 400);
             }
 
@@ -388,8 +392,9 @@ class MoolreController extends Controller
                 return response()->json(['status' => 'success', 'message' => 'Already paid']);
             }
 
-            // Check for success
-            $isSuccess = in_array(strtolower((string) $status), ['successful', 'success', '1', 'paid', 'approved', 'completed'])
+            // Check for success - include P01 code and txstatus
+            $isSuccess = ($status == 1 || $txStatus == 1 || $code === 'P01')
+                || in_array(strtolower((string) $status), ['successful', 'success', 'paid', 'approved', 'completed'])
                 || in_array($code, ['TP00', 'TP01']);
 
             if ($isSuccess) {
@@ -427,21 +432,19 @@ class MoolreController extends Controller
 
 
     /**
-     * Show return page for Web POS flow
+     * Show return page for Web POS flow - redirects directly to confirmation
      */
     public function returnPage(Request $request, $storeSlug, $orderNumber)
     {
         $store = Store::where('slug', $storeSlug)->firstOrFail();
         $order = Order::where('order_number', $orderNumber)->where('store_id', $store->id)->firstOrFail();
 
-        if ($order->payment_status === 'paid') {
-            return redirect()->route('store.order-confirmation', [
-                'storeSlug' => $storeSlug,
-                'orderNumber' => $orderNumber
-            ])->with('success', 'Payment successful!');
-        }
-
-        return view('store.moolre-return', compact('store', 'order', 'storeSlug'));
+        // Always redirect to order confirmation since webhook handles the payment
+        // If not paid yet, the confirmation page will show the pending status
+        return redirect()->route('store.order-confirmation', [
+            'storeSlug' => $storeSlug,
+            'orderNumber' => $orderNumber
+        ])->with('info', 'Payment is being processed. Please check your order status.');
     }
 
     /**
