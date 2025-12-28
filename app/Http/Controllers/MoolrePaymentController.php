@@ -124,7 +124,26 @@ class MoolrePaymentController extends Controller
             return response()->json(['status' => 'no_payment', 'message' => 'No pending payment']);
         }
 
-        // Verify with Moolre
+        // First, check if the webhook already processed this payment
+        // by checking if the user has an active subscription
+        $user = \App\Models\User::find($paymentInfo['user_id']);
+        if ($user) {
+            $subscription = $user->subscriptions()
+                ->where('plan_id', $paymentInfo['plan_id'])
+                ->where('status', 'active')
+                ->first();
+
+            if ($subscription && $subscription->created_at->gt(now()->subMinutes(5))) {
+                // Subscription was just created (within 5 minutes), consider it success
+                session()->forget('moolre_payment');
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Payment verified!'
+                ]);
+            }
+        }
+
+        // Fallback: Verify with Moolre API
         try {
             $credentials = [
                 'username' => $paymentInfo['moolre_username'],
