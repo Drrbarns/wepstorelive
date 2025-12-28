@@ -97,6 +97,8 @@ class MoolreWebhookController extends Controller
         $order->update([
             'status' => 'processing',
             'payment_status' => 'paid',
+            'payment_method' => 'moolre',
+            'payment_gateway' => 'moolre',
             'payment_details' => array_merge($order->payment_details ?? [], [
                 'moolre_webhook_data' => $webhookData,
                 'verified_at' => now(),
