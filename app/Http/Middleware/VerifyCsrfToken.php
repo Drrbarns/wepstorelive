@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
         'payments/easebuzz/success',
         'payments/easebuzz/callback',
         'payments/paytabs/callback',
+        'payments/moolre/callback', // Matches Moolre dashboard config
         'store/*/moolre/callback',
         'payment/moolre/callback',
         'moolre/webhook', // New Global Webhook matches Phase 4

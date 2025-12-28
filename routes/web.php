@@ -242,6 +242,10 @@ Route::post('payments/xendit/callback', [XenditPaymentController::class, 'callba
 // Moolre plan payment callback (public route)
 Route::match(['GET', 'POST'], 'payment/moolre/callback', [\App\Http\Controllers\MoolrePaymentController::class, 'callback'])->name('moolre.payment.callback');
 
+// Moolre webhook - supports both URL patterns
+Route::match(['GET', 'POST'], 'payments/moolre/callback', [\App\Http\Controllers\MoolreWebhookController::class, 'handle'])->name('moolre.payments.callback');
+
+
 
 
 
