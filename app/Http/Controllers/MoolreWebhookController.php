@@ -112,23 +112,35 @@ class MoolreWebhookController extends Controller
 
     protected function handlePlanPayment(string $externalRef, array $data)
     {
-        Log::info("Moolre Webhook: Processing Plan Payment {$externalRef}");
+        Log::info("Moolre Webhook: Processing Plan Payment {$externalRef}", $data);
 
-        // Verify Status
-        $superAdminId = \App\Models\User::where('type', 'superadmin')->first()?->id;
-        $settings = getPaymentSettings($superAdminId);
+        // Check if callback already indicates success
+        // Moolre sends: {"status": 1, "code": "P01", "message": "Transaction Successful", "data": {...}}
+        $callbackStatus = $data['status'] ?? null;
+        $callbackCode = $data['code'] ?? null;
+        $nestedData = $data['data'] ?? [];
+        $txStatus = $nestedData['txstatus'] ?? null;
 
-        $credentials = [
-            'username' => $settings['moolre_username'],
-            'public_key' => $settings['moolre_public_key'],
-            'account_number' => $settings['moolre_account_number'],
-        ];
+        // Trust the callback if it shows success
+        $isSuccess = ($callbackStatus == 1 || $callbackCode === 'P01' || $txStatus == 1);
 
-        $status = $this->moolreService->checkGenericStatus($credentials, $externalRef);
+        if (!$isSuccess) {
+            // Fallback: Try server-to-server verification
+            $superAdminId = \App\Models\User::where('type', 'superadmin')->first()?->id;
+            $settings = getPaymentSettings($superAdminId);
 
-        if ($status !== 'success') {
-            Log::warning("Moolre Webhook: Plan verification failed for {$externalRef}");
-            return response()->json(['status' => 'ignored'], 200);
+            $credentials = [
+                'username' => $settings['moolre_username'],
+                'public_key' => $settings['moolre_public_key'],
+                'account_number' => $settings['moolre_account_number'],
+            ];
+
+            $status = $this->moolreService->checkGenericStatus($credentials, $externalRef);
+
+            if ($status !== 'success') {
+                Log::warning("Moolre Webhook: Plan verification failed for {$externalRef}");
+                return response()->json(['status' => 'ignored'], 200);
+            }
         }
 
         // Parse: plan_UserId_PlanId_Cycle_Time
