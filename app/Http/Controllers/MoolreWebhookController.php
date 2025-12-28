@@ -29,11 +29,12 @@ class MoolreWebhookController extends Controller
             $data = $request->all();
 
             // 1. Extract Reference
-            // Moolre sends 'externalref' which matches our 'order_number'
-            $externalRef = $data['externalref'] ?? $data['external_ref'] ?? null;
+            // Moolre sends data in nested 'data' object: {"data": {"externalref": "..."}}
+            $nestedData = $data['data'] ?? [];
+            $externalRef = $nestedData['externalref'] ?? $nestedData['external_ref'] ?? $data['externalref'] ?? $data['external_ref'] ?? null;
 
             if (!$externalRef) {
-                Log::warning('Moolre Webhook: No external reference provided');
+                Log::warning('Moolre Webhook: No external reference provided', $data);
                 return response()->json(['status' => 'ignored', 'message' => 'No reference'], 200);
             }
 
