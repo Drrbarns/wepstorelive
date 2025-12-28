@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>WepStore - Launch, Manage, & Scale Your Online Store</title>
+  <meta name="title" content="WepStore - Launch, Manage, & Scale Your Online Store" />
+  <meta name="description"
+    content="The all-in-one e-commerce platform to start, run, and grow your business. Create beautiful online stores, manage inventory, process payments, and scale your business with WepStore. No coding required." />
+  <meta name="keywords"
+    content="e-commerce, online store, store builder, ecommerce platform, online business, shopify alternative, woocommerce alternative, online selling, digital storefront" />
+  <meta name="author" content="Dr. Barns Tech" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  <link rel="canonical" href="https://wepstore.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wepstore.com/" />
+  <meta property="og:title" content="WepStore - Launch, Manage, & Scale Your Online Store" />
+  <meta property="og:description"
+    content="The all-in-one e-commerce platform to start, run, and grow your business. Create beautiful online stores, manage inventory, process payments, and scale your business with WepStore." />
+  <meta property="og:image" content="https://wepstore.com/images/logos/wepstore-logo-og.png" />
+  <meta property="og:image:secure_url" content="https://wepstore.com/images/logos/wepstore-logo-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="WepStore - Powered By Dr Barns Tech - E-commerce Platform" />
+  <meta property="og:site_name" content="WepStore" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://wepstore.com/" />
+  <meta name="twitter:title" content="WepStore - Launch, Manage, & Scale Your Online Store" />
+  <meta name="twitter:description"
+    content="The all-in-one e-commerce platform to start, run, and grow your business. Create beautiful online stores, manage inventory, process payments, and scale your business with WepStore." />
+  <meta name="twitter:image" content="https://wepstore.com/images/logos/wepstore-logo-og.png" />
+  <meta name="twitter:image:alt" content="WepStore - Powered By Dr Barns Tech - E-commerce Platform" />
+  <meta name="twitter:creator" content="@doctor_barns" />
+  <meta name="twitter:site" content="@wepstore" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logos/icon-192x192.png" />
+  <link rel="apple-touch-icon" href="/images/logos/icon-512x512.png" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "WepStore",
+      "applicationCategory": "E-commerce Platform",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "25000"
+      },
+      "description": "The all-in-one e-commerce platform to start, run, and grow your business. Create beautiful online stores, manage inventory, process payments, and scale your business with WepStore.",
+      "url": "https://wepstore.com",
+      "logo": "https://wepstore.com/images/logos/wepstore-logo-og.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/dr-barnabas-baniyire/",
+        "https://x.com/doctor_barns",
+        "https://web.facebook.com/doctorbarns"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Dr. Barns Tech",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wepstore.com/images/logos/wepstore-logo-og.png"
+        }
+      }
+    }
+    </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Lexend', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#2563EB', // Royal Blue
+              dark: '#1E40AF', // Darker Blue
+              light: '#DBEAFE', // Light Blue
+            },
+            dark: {
+              DEFAULT: '#0B1121', // Deep Navy
+              surface: '#1E293B', // Slate 800
+            },
+            accent: {
+              light: '#EFF6FF', // Light Blue
+              slate: '#F8FAFC',  // Slate 50
+            }
+          },
+          backgroundImage: {
+            'hero-gradient': 'radial-gradient(circle at 50% 50%, #1e293b 0%, #0B1121 100%)',
+            'glass': 'linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+            'pulse-slow': 'pulse-slow 6s ease-in-out infinite',
+            'spin-slow': 'spin 15s linear infinite',
+            'spin-reverse-slow': 'spin-reverse 20s linear infinite',
+            'marquee': 'marquee 25s linear infinite',
+            'slide-up': 'slide-up 0.5s ease-out forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            'fade-in-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'slide-up': {
+              '0%': { transform: 'translateY(100%)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            'pulse-slow': {
+              '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.1)' },
+            },
+            'spin-reverse': {
+              'from': { transform: 'rotate(360deg)' },
+              'to': { transform: 'rotate(0deg)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .text-highlight-blue {
+      position: relative;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    .text-highlight-blue::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      right: -5px;
+      top: 2px;
+      bottom: 2px;
+      background-color: #DBEAFE;
+      /* Blue 100 */
+      z-index: -1;
+      transform: rotate(-1deg);
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .text-highlight-blue:hover::before {
+      transform: rotate(1deg) scale(1.05);
+    }
+
+    .text-highlight-navy {
+      position: relative;
+      z-index: 10;
+    }
+
+    .text-highlight-navy::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      right: -5px;
+      top: 2px;
+      bottom: 2px;
+      background-color: #E0F2FE;
+      /* Sky 100 */
+      z-index: -1;
+      transform: rotate(1deg);
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .text-highlight-navy:hover::before {
+      transform: rotate(-1deg) scale(1.05);
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+
+    .preserve-3d {
+      transform-style: preserve-3d;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Gradient text for logo */
+    .logo-text {
+      background: linear-gradient(to right, #0B1121, #2563EB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .dark .logo-text {
+      background: linear-gradient(to right, #FFFFFF, #60A5FA);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/index-B6V3fajR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CGVRbuVD.css">
+</head>
+
+<body class="bg-dark text-white antialiased font-sans selection:bg-primary selection:text-white overflow-x-hidden">
+  <div id="root"></div>
+</body>
+
+</html>

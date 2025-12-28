@@ -1,0 +1,64 @@
+{
+    "name": "Home Decor Haven",
+    "short_name": "Home Decor H",
+    "description": "Beautiful home decor items, furniture, and accessories to transform your living space.",
+    "start_url": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/store\/home-decor-haven",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#00c74c",
+    "orientation": "portrait",
+    "categories": [
+        "shopping",
+        "business"
+    ],
+    "icons": [
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "72x72",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "96x96",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "128x128",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "144x144",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "152x152",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "192x192",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "384x384",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "http:\/\/localhost\/product\/storego\/storego-saas-react-main\/main-file\/images\/default-store-icon.png",
+            "sizes": "512x512",
+            "type": "image\/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

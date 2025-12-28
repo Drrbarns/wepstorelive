@@ -1,0 +1,14 @@
+{
+  "commands": {
+    "Push to GitHub": {
+      "command": "powershell -ExecutionPolicy Bypass -File ./git-push.ps1",
+      "description": "Quick push to GitHub with auto-commit"
+    },
+    "Push with Message": {
+      "command": "powershell -ExecutionPolicy Bypass -File ./git-push.ps1 \"$input\"",
+      "description": "Push to GitHub with custom commit message"
+    }
+  }
+}
+
+
