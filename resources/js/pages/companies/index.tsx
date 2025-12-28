@@ -364,6 +364,11 @@ export default function Companies() {
       }
     },
     {
+      key: 'phone',
+      label: t('Phone'),
+      render: (value: string) => value || <span className="text-muted-foreground">-</span>
+    },
+    {
       key: 'plan_name',
       label: t('Plan'),
       render: (value: string) => <span className="capitalize">{value}</span>

@@ -1,5 +1,5 @@
 import { useForm } from '@inertiajs/react';
-import { Mail, Lock, User } from 'lucide-react';
+import { Mail, Lock, User, Phone } from 'lucide-react';
 import { FormEventHandler, useState } from 'react';
 
 import InputError from '@/components/input-error';
@@ -17,6 +17,7 @@ import { THEME_COLORS } from '@/hooks/use-appearance';
 type RegisterForm = {
     name: string;
     email: string;
+    phone: string;
     password: string;
     password_confirmation: string;
     terms: boolean;
@@ -33,6 +34,7 @@ export default function Register({ referralCode, planId }: { referralCode?: stri
     const { data, setData, post, processing, errors, reset } = useForm<RegisterForm>({
         name: '',
         email: '',
+        phone: '',
         password: '',
         password_confirmation: '',
         terms: false,
@@ -100,6 +102,27 @@ export default function Register({ referralCode, planId }: { referralCode?: stri
                         <InputError message={errors.email} />
                     </div>
 
+                    <div className="relative">
+                        <Label htmlFor="phone" className="text-gray-700 dark:text-gray-300 font-medium mb-1 block">{t("Phone number")}</Label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <Phone className="h-5 w-5 text-gray-400" />
+                            </div>
+                            <Input
+                                id="phone"
+                                type="tel"
+                                tabIndex={3}
+                                autoComplete="tel"
+                                value={data.phone}
+                                onChange={(e) => setData('phone', e.target.value)}
+                                placeholder="+233 XX XXX XXXX"
+                                className="pl-10 w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 rounded-lg transition-all duration-200"
+                                style={{ '--tw-ring-color': primaryColor } as React.CSSProperties}
+                            />
+                        </div>
+                        <InputError message={errors.phone} />
+                    </div>
+
                     <div>
                         <Label htmlFor="password" className="text-gray-700 dark:text-gray-300 font-medium mb-1 block">{t("Password")}</Label>
                         <div className="relative">
@@ -110,7 +133,7 @@ export default function Register({ referralCode, planId }: { referralCode?: stri
                                 id="password"
                                 type="password"
                                 required
-                                tabIndex={3}
+                                tabIndex={4}
                                 autoComplete="new-password"
                                 value={data.password}
                                 onChange={(e) => setData('password', e.target.value)}
@@ -132,7 +155,7 @@ export default function Register({ referralCode, planId }: { referralCode?: stri
                                 id="password_confirmation"
                                 type="password"
                                 required
-                                tabIndex={4}
+                                tabIndex={5}
                                 autoComplete="new-password"
                                 value={data.password_confirmation}
                                 onChange={(e) => setData('password_confirmation', e.target.value)}
@@ -150,7 +173,7 @@ export default function Register({ referralCode, planId }: { referralCode?: stri
                             name="terms"
                             checked={data.terms}
                             onClick={() => setData('terms', !data.terms)}
-                            tabIndex={5}
+                            tabIndex={6}
                             className="mt-1 border-gray-300 rounded"
                             style={{ '--tw-ring-color': primaryColor, color: primaryColor } as React.CSSProperties}
                         />
