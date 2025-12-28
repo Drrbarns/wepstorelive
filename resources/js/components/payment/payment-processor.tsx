@@ -221,7 +221,7 @@ export function PaymentProcessor({
             {...commonProps}
             planPrice={Number(plan.price)}
             paystackKey={plan.paymentMethods?.paystack_public_key || ''}
-            currency={plan.paymentMethods?.currency || 'NGN'}
+            currency={plan.paymentMethods?.currency || 'GHS'}
           />
         );
       case 'flutterwave':
@@ -230,7 +230,7 @@ export function PaymentProcessor({
             {...commonProps}
             planPrice={Number(plan.price)}
             flutterwaveKey={plan.paymentMethods?.flutterwave_public_key || ''}
-            currency={plan.paymentMethods?.currency || 'NGN'}
+            currency={plan.paymentMethods?.currency || 'GHS'}
           />
         );
       case 'paytabs':
