@@ -66,7 +66,7 @@ class MoolrePaymentController extends Controller
                 'externalref' => $externalRef,
                 // 'payer' => $request->phone_number, // Optional, can skip
                 'callback' => route('moolre.global.webhook'),
-                'redirect' => route('moolre.payment.return', ['reference' => $externalRef]),
+                'redirect' => route('plans.index') . '?moolre_success=1', // Redirect directly to plans
                 'reusable' => "0",
                 'currency' => 'GHS',
                 'accountnumber' => $settings['moolre_account_number'],
