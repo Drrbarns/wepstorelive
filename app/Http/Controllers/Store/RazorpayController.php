@@ -26,12 +26,12 @@ class RazorpayController extends Controller
 
             $store = Store::where('slug', $storeSlug)->firstOrFail();
             $order = Order::where('id', $request->order_id)
-                          ->where('store_id', $store->id)
-                          ->firstOrFail();
+                ->where('store_id', $store->id)
+                ->firstOrFail();
 
             // Get Razorpay configuration
             $razorpayConfig = getPaymentMethodConfig('razorpay', $store->user->id, $store->id);
-            
+
             if (!$razorpayConfig['enabled'] || !$razorpayConfig['key'] || !$razorpayConfig['secret']) {
                 return response()->json(['error' => 'Razorpay is not configured for this store'], 400);
             }
@@ -48,8 +48,10 @@ class RazorpayController extends Controller
 
             // Update order status
             $order->update([
-                'status' => 'confirmed',
+                'status' => 'processing',
                 'payment_status' => 'paid',
+                'payment_method' => 'razorpay',
+                'payment_gateway' => 'razorpay',
                 'payment_details' => array_merge($order->payment_details ?? [], [
                     'razorpay_payment_id' => $request->razorpay_payment_id,
                     'razorpay_signature' => $request->razorpay_signature,
@@ -92,7 +94,7 @@ class RazorpayController extends Controller
         try {
             $payload = $request->getContent();
             $signature = $request->header('X-Razorpay-Signature');
-            
+
             // Note: Webhook verification would need store-specific secret
             // For now, we'll just log the webhook
             Log::info('Razorpay webhook received', [

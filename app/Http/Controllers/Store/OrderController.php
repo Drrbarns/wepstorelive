@@ -334,8 +334,10 @@ class OrderController extends Controller
             if ($response->successful() && isset($responseBody['data']['status']) && $responseBody['data']['status'] === 'success') {
                 // Payment successful
                 $order->update([
-                    'status' => 'confirmed',
+                    'status' => 'processing',
                     'payment_status' => 'paid',
+                    'payment_method' => 'paystack',
+                    'payment_gateway' => 'paystack',
                     'payment_details' => array_merge($order->payment_details ?? [], [
                         'paystack_reference' => $reference,
                         'verified_at' => now(),
@@ -408,8 +410,10 @@ class OrderController extends Controller
             if ($response->successful() && isset($responseBody['data']['status']) && $responseBody['data']['status'] === 'successful') {
                 // Payment successful
                 $order->update([
-                    'status' => 'confirmed',
+                    'status' => 'processing',
                     'payment_status' => 'paid',
+                    'payment_method' => 'flutterwave',
+                    'payment_gateway' => 'flutterwave',
                     'payment_details' => array_merge($order->payment_details ?? [], [
                         'flutterwave_transaction_id' => $transactionId,
                         'verified_at' => now(),
