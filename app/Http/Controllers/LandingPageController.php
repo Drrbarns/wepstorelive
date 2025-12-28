@@ -84,6 +84,11 @@ class LandingPageController extends Controller
         $content = str_replace('https://wepstore.com/images/logos/', $appUrl . '/images/logos/', $content);
         $content = str_replace('https://wepstore.com', $appUrl, $content);
 
+        // Add base tag to head so ALL relative URLs resolve correctly
+        if (strpos($content, '<base') === false) {
+            $content = str_replace('<head>', '<head><base href="' . $wepstoreBase . '">', $content);
+        }
+
         // Replace relative asset paths with absolute paths
         $replacements = [
             'src="./assets/' => 'src="' . $assetsBase,
