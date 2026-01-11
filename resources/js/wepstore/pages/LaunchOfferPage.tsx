@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Check, Shield, Star, DollarSign, Loader2 } from 'lucide-react';
-import { EXTERNAL_LINKS } from '../constants';
+import { ArrowRight, Check, Shield, Star, Loader2 } from 'lucide-react';
 
 const LaunchOfferPage: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -10,12 +9,9 @@ const LaunchOfferPage: React.FC = () => {
         businessName: '',
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [error, setError] = useState('');
 
-    // ---------------------------------------------------------------------------
-    // TODO: REPLACE THIS URL WITH YOUR ACTUAL MOOLRE PAYMENT LINK
-    // ---------------------------------------------------------------------------
-    const MOOLRE_PAYMENT_URL = "https://pay.moolre.com/pay/wepstore-starter-plan";
+    // Moolre POS Link provided by user
+    const PAYMENT_URL = "https://pos.moolre.com/obH64lxcDCT5kXumBr8YtF7NiZO2zP";
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -24,11 +20,9 @@ const LaunchOfferPage: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setError('');
 
         try {
-            // 1. Send lead data to our backend (using the existing contact endpoint as a workaround)
-            // We format the Business Name and Phone into the message body.
+            // 1. Send lead data to our backend
             const messageBody = `NEW LAUNCH OFFER LEAD\n\nBusiness Name: ${formData.businessName}\nPhone: ${formData.phone}\nPlan: Starter Store (GHS 504)`;
 
             const response = await fetch('/contact', {
@@ -46,18 +40,16 @@ const LaunchOfferPage: React.FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to save lead information');
+                console.error('Failed to save lead information');
+                // We continue to payment anyway
             }
 
             // 2. Redirect to Moolre Payment Page
-            window.location.href = MOOLRE_PAYMENT_URL;
+            window.location.href = PAYMENT_URL;
 
         } catch (err) {
             console.error(err);
-            // Even if saving fails, we might still want to capture the payment? 
-            // For now, let's show an error or just redirect anyway to secure the money?
-            // Let's redirect anyway but log the error.
-            window.location.href = MOOLRE_PAYMENT_URL;
+            window.location.href = PAYMENT_URL;
         } finally {
             setIsSubmitting(false);
         }
@@ -65,10 +57,6 @@ const LaunchOfferPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 font-sans text-gray-900">
-
-            {/* Navbar Placeholder/Logo */}
-
-
             <div className="flex flex-col lg:flex-row min-h-screen">
 
                 {/* Left Column: Value Prop */}
@@ -136,6 +124,7 @@ const LaunchOfferPage: React.FC = () => {
                                     placeholder="John Doe"
                                     value={formData.name}
                                     onChange={handleChange}
+                                    autoFocus
                                 />
                             </div>
 
