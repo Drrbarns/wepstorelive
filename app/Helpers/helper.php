@@ -941,7 +941,7 @@ if (!function_exists('calculatePlanPricing')) {
         $couponId = null;
 
         if ($couponCode) {
-            $coupon = Coupon::where('code', $couponCode)
+            $coupon = Coupon::whereRaw('LOWER(code) = ?', [strtolower($couponCode)])
                 ->where('status', 1)
                 ->first();
 
@@ -1013,6 +1013,14 @@ if (!function_exists('processPaymentSuccess')) {
 
         $planOrder = createPlanOrder(array_merge($data, ['status' => 'approved']));
         assignPlanToUser($user, $plan, $data['billing_cycle']);
+
+        // Increment coupon usage count if a coupon was used
+        if (!empty($data['coupon_code'])) {
+            $coupon = Coupon::whereRaw('LOWER(code) = ?', [strtolower($data['coupon_code'])])->first();
+            if ($coupon) {
+                $coupon->increment('used_count');
+            }
+        }
 
         // Verify the plan was assigned
         $user->refresh();

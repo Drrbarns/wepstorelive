@@ -9,7 +9,7 @@ const PricingPage: React.FC = () => {
       {/* Hero Section */}
       <section className="bg-dark pt-40 pb-32 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -17,12 +17,12 @@ const PricingPage: React.FC = () => {
             <Zap size={14} className="text-primary" />
             Simple, Transparent Pricing
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6">
             Plans that grow <br />
             <span className="text-highlight-blue text-dark cursor-default">with your business</span>
           </h1>
-          
+
           <p className="text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed">
             No hidden fees. No surprises. Just powerful features at prices that make sense.
           </p>
@@ -157,7 +157,7 @@ const PricingPage: React.FC = () => {
           <p className="text-xl text-blue-100 mb-10">
             Start your 14-day free trial today. No credit card required.
           </p>
-          <a 
+          <a
             href={EXTERNAL_LINKS.REGISTER}
             className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-colors shadow-lg"
           >

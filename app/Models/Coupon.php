@@ -18,6 +18,7 @@ class Coupon extends Model
         'expiry_date',
         'code',
         'code_type',
+        'used_count',
         'status',
         'created_by'
     ];
@@ -27,7 +28,8 @@ class Coupon extends Model
         'maximum_spend' => 'decimal:2',
         'discount_amount' => 'decimal:2',
         'expiry_date' => 'date',
-        'status' => 'boolean'
+        'status' => 'boolean',
+        'used_count' => 'integer'
     ];
 
     public function creator(): BelongsTo

@@ -23,7 +23,7 @@ class CouponController extends BaseController
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('code', 'like', "%{$search}%");
+                    ->orWhere('code', 'like', "%{$search}%");
             });
         }
 
@@ -95,18 +95,18 @@ class CouponController extends BaseController
             'plan_id' => 'required|integer',
             'amount' => 'required|numeric|min:0'
         ]);
-        
-        $coupon = Coupon::where('code', $request->coupon_code)
+
+        $coupon = Coupon::whereRaw('LOWER(code) = ?', [strtolower($request->coupon_code)])
             ->where('status', 1)
             ->first();
-            
+
         if (!$coupon) {
             return response()->json([
                 'valid' => false,
                 'message' => __('Invalid or inactive coupon code')
             ], 400);
         }
-        
+
         // Check if coupon is expired
         if ($coupon->expiry_date && $coupon->expiry_date < now()) {
             return response()->json([
@@ -114,7 +114,7 @@ class CouponController extends BaseController
                 'message' => __('Coupon has expired')
             ], 400);
         }
-        
+
         // Check usage limit
         if ($coupon->use_limit_per_coupon && $coupon->used_count >= $coupon->use_limit_per_coupon) {
             return response()->json([
@@ -122,7 +122,7 @@ class CouponController extends BaseController
                 'message' => __('Coupon usage limit exceeded')
             ], 400);
         }
-        
+
         // Check minimum amount
         if ($coupon->minimum_spend && $request->amount < $coupon->minimum_spend) {
             return response()->json([
@@ -130,7 +130,7 @@ class CouponController extends BaseController
                 'message' => __('Minimum spend requirement not met')
             ], 400);
         }
-        
+
         return response()->json([
             'valid' => true,
             'coupon' => [
