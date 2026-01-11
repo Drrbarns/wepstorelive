@@ -1,6 +1,6 @@
 import React from 'react';
 import { Shield, Lock, Eye, UserCheck, Database, AlertCircle } from 'lucide-react';
-import { COMPANY } from '../constants';
+import { COMPANY } from '../frontend-constants';
 
 const Privacy: React.FC = () => {
   return (
@@ -233,4 +233,5 @@ const Privacy: React.FC = () => {
 };
 
 export default Privacy;
+
 

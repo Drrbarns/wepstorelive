@@ -1,6 +1,6 @@
 import React from 'react';
 import { Clock, CheckCircle2, Palette, Zap } from 'lucide-react';
-import { STATS } from '../constants';
+import { STATS } from '../frontend-constants';
 
 const WhyChooseUs: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CreditCard, Smartphone, Globe, Shield, CheckCircle, Zap, DollarSign, TrendingUp, ArrowRight } from 'lucide-react';
-import { COMPANY, EXTERNAL_LINKS } from '../constants';
+import { COMPANY, EXTERNAL_LINKS } from '../frontend-constants';
 
 const Payments: React.FC = () => {
   const paymentMethods = [
@@ -356,4 +356,5 @@ const Payments: React.FC = () => {
 };
 
 export default Payments;
+
 

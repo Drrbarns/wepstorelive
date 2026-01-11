@@ -108,3 +108,4 @@ const DesignTipsAfricanCulture: React.FC = () => {
 
 export default DesignTipsAfricanCulture;
 
+

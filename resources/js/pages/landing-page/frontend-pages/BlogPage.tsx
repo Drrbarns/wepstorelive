@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Clock, TrendingUp } from 'lucide-react';
-import { EXTERNAL_LINKS } from '../constants';
+import { EXTERNAL_LINKS } from '../frontend-constants';
 
 const BlogPage: React.FC = () => {
   const featuredPost = {
@@ -244,4 +244,5 @@ const BlogPage: React.FC = () => {
 };
 
 export default BlogPage;
+
 

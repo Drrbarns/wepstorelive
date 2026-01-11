@@ -1,6 +1,6 @@
 import React from 'react';
 import { Code, Book, Zap, Shield, Globe, Terminal, FileCode, Cpu, Key, ArrowRight } from 'lucide-react';
-import { COMPANY, EXTERNAL_LINKS } from '../constants';
+import { COMPANY, EXTERNAL_LINKS } from '../frontend-constants';
 
 const Developers: React.FC = () => {
   const features = [
@@ -324,4 +324,5 @@ console.log('Product created:', product.id);`;
 };
 
 export default Developers;
+
 

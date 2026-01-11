@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, TrendingUp, ShoppingBag } from 'lucide-react';
-import { EXTERNAL_LINKS } from '../constants';
+import { EXTERNAL_LINKS } from '../frontend-constants';
 
 const FooterCTA: React.FC = () => {
   return (

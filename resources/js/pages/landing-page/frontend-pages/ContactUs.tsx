@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe } from 'lucide-react';
-import { COMPANY, CONTACT } from '../constants';
+import { COMPANY, CONTACT } from '../frontend-constants';
 
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -264,4 +264,5 @@ const ContactUs: React.FC = () => {
 };
 
 export default ContactUs;
+
 

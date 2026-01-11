@@ -119,3 +119,4 @@ const ScalingKioskToDigital: React.FC = () => {
 
 export default ScalingKioskToDigital;
 
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Target, Users, Zap, Award, TrendingUp, Globe, ShieldCheck, Sparkles } from 'lucide-react';
-import { STATS, COMPANY, EXTERNAL_LINKS } from '../constants';
+import { STATS, COMPANY, EXTERNAL_LINKS } from '../frontend-constants';
 
 const AboutUs: React.FC = () => {
   return (
@@ -233,4 +233,5 @@ const AboutUs: React.FC = () => {
 };
 
 export default AboutUs;
+
 

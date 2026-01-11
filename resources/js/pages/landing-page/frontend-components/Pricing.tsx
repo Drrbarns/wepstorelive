@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
-import { PRICING, EXTERNAL_LINKS } from '../constants';
+import { PRICING, EXTERNAL_LINKS } from '../frontend-constants';
 
 const Pricing: React.FC = () => {
   const [annual, setAnnual] = useState(false);

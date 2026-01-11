@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { TRIAL, ANIMATION_DELAYS, EXTERNAL_LINKS } from '../constants';
+import { TRIAL, ANIMATION_DELAYS, EXTERNAL_LINKS } from '../frontend-constants';
 
 const Hero: React.FC = () => {
   return (

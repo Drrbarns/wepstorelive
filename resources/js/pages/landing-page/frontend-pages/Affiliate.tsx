@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TrendingUp, DollarSign, Users, Zap, CheckCircle, ArrowRight, Mail, Globe, User, Building } from 'lucide-react';
-import { COMPANY, EXTERNAL_LINKS, CONTACT } from '../constants';
+import { COMPANY, EXTERNAL_LINKS, CONTACT } from '../frontend-constants';
 
 const Affiliate: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -409,4 +409,5 @@ const Affiliate: React.FC = () => {
 };
 
 export default Affiliate;
+
 

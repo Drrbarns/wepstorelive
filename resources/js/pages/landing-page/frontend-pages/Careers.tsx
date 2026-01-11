@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase, Heart, TrendingUp, Users, MapPin, Clock, ArrowRight, Zap, Globe } from 'lucide-react';
-import { COMPANY, EXTERNAL_LINKS } from '../constants';
+import { COMPANY, EXTERNAL_LINKS } from '../frontend-constants';
 
 const Careers: React.FC = () => {
   const positions = [
@@ -302,4 +302,5 @@ const Careers: React.FC = () => {
 };
 
 export default Careers;
+
 

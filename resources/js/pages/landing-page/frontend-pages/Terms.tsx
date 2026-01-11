@@ -1,6 +1,6 @@
 import React from 'react';
 import { FileText, CheckCircle, AlertTriangle, Scale } from 'lucide-react';
-import { COMPANY } from '../constants';
+import { COMPANY } from '../frontend-constants';
 
 const Terms: React.FC = () => {
   return (
@@ -264,4 +264,5 @@ const Terms: React.FC = () => {
 };
 
 export default Terms;
+
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Handshake, TrendingUp, Globe, Zap, Users, CheckCircle, ArrowRight, Target } from 'lucide-react';
-import { COMPANY, EXTERNAL_LINKS } from '../constants';
+import { COMPANY, EXTERNAL_LINKS } from '../frontend-constants';
 
 const Partners: React.FC = () => {
   const partnerTypes = [
@@ -204,4 +204,5 @@ const Partners: React.FC = () => {
 };
 
 export default Partners;
+
 

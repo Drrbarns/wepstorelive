@@ -1,5 +1,5 @@
 import React from 'react';
-import { STATS } from '../constants';
+import { STATS } from '../frontend-constants';
 
 const Clients: React.FC = () => {
   // Updated Logo to use distinct, vibrant brand colors for both icon AND text

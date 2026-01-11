@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Linkedin, Facebook, X, Instagram, Globe } from 'lucide-react';
-import { COMPANY, SOCIAL_LINKS } from '../constants';
+import { COMPANY, SOCIAL_LINKS } from '../frontend-constants';
 
 const Footer: React.FC = () => {
   // Recreated Logo Component for Footer
