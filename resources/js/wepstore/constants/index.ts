@@ -15,7 +15,7 @@ export const DROPDOWN_WIDTHS = {
 
 // Pricing
 export const PRICING = {
-  ANNUAL_DISCOUNT: 0.80, // 20% off (pay 80%)
+  ANNUAL_DISCOUNT: 0.42, // 58% off (pay 42%)
   CURRENCY_SYMBOL: '₵',
 } as const;
 
