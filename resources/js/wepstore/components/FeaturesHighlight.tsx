@@ -75,7 +75,7 @@ const FeaturesHighlight: React.FC = () => {
                 </div>
 
                 {/* Feature 2: Starter Plan Promotion */}
-                <div className="bg-dark rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden min-h-[600px] text-white group transition-all duration-500 hover:shadow-2xl border border-gray-800">
+                <div className="bg-dark rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden min-h-[650px] text-white group transition-all duration-500 hover:shadow-2xl border border-gray-800">
                     <div className="relative z-10 max-w-md">
                         <div className="w-14 h-14 bg-gray-800 rounded-2xl flex items-center justify-center mb-8 text-emerald-400 border border-gray-700">
                             <DollarSign size={28} strokeWidth={1.5} />
@@ -92,7 +92,7 @@ const FeaturesHighlight: React.FC = () => {
                     </div>
 
                     {/* Floating Card Mockup - Pricing Breakdown */}
-                    <div className="bg-white text-gray-900 rounded-2xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-72 absolute bottom-10 right-10 transform transition-all duration-700 group-hover:scale-105 group-hover:-translate-y-4 z-20 border border-gray-700 hidden md:block">
+                    <div className="bg-white text-gray-900 rounded-2xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-72 absolute bottom-8 right-8 transform transition-all duration-700 group-hover:scale-105 group-hover:-translate-y-4 z-20 border border-gray-700 hidden lg:block">
                         <div className="flex justify-between items-start mb-3">
                             <div>
                                 <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Starter Plan Deal</span>
