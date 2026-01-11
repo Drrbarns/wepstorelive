@@ -74,26 +74,30 @@ const FeaturesHighlight: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Feature 2: Analytics / Profit */}
+                {/* Feature 2: Starter Plan Promotion */}
                 <div className="bg-dark rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden min-h-[600px] text-white group transition-all duration-500 hover:shadow-2xl border border-gray-800">
                     <div className="relative z-10 max-w-md">
                         <div className="w-14 h-14 bg-gray-800 rounded-2xl flex items-center justify-center mb-8 text-emerald-400 border border-gray-700">
-                            <TrendingUp size={28} strokeWidth={1.5} />
+                            <DollarSign size={28} strokeWidth={1.5} />
                         </div>
                         <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                            Data-driven <br /> <span className="text-emerald-400">market dominance.</span>
+                            Launch your store for just <br /> <span className="text-emerald-400">GHS 504.</span>
                         </h3>
                         <p className="text-gray-400 mb-8 text-lg leading-relaxed">
-                            Stop guessing. Our profit-first dashboard shows you exactly which products, ads, and customers are making you money in real-time.
+                            Get our full Starter Plan (normally GHS 1,200) at 58% OFF. Includes free domain, hosting, and everything you need to start selling today.
                         </p>
+                        <button className="bg-emerald-500 text-white px-8 py-3.5 rounded-full font-bold flex items-center gap-2 text-sm hover:bg-emerald-600 transition-all transform group-hover:translate-x-1 shadow-lg shadow-emerald-500/20">
+                            Get Starter Plan <ArrowRight size={18} />
+                        </button>
                     </div>
 
-                    {/* Floating Card Mockup - Moved Position to avoid overlap */}
+                    {/* Floating Card Mockup - Pricing Breakdown */}
                     <div className="bg-white text-gray-900 rounded-2xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-72 absolute bottom-10 right-10 transform transition-all duration-700 group-hover:scale-105 group-hover:-translate-y-4 z-20 border border-gray-700 hidden md:block">
                         <div className="flex justify-between items-start mb-3">
                             <div>
-                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Total Revenue</span>
-                                <div className="text-3xl font-bold text-gray-900 mt-1">$288,402</div>
+                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Starter Plan Deal</span>
+                                <div className="text-3xl font-bold text-gray-900 mt-1">GHS 504</div>
+                                <div className="text-xs text-red-400 line-through font-medium">was GHS 1,200</div>
                             </div>
                             <div className="bg-gray-100 p-1.5 rounded-lg hover:bg-gray-200 cursor-pointer">
                                 <MoreHorizontal size={16} className="text-gray-500" />
@@ -101,20 +105,21 @@ const FeaturesHighlight: React.FC = () => {
                         </div>
                         <div className="flex items-center gap-3 mb-6">
                             <span className="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-md flex items-center gap-1">
-                                <TrendingUp size={10} /> 24.5%
+                                <TrendingUp size={10} /> 58% OFF
                             </span>
-                            <span className="text-xs text-gray-400 font-medium">vs last month</span>
+                            <span className="text-xs text-gray-400 font-medium">Limited time only</span>
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between text-[10px] font-bold text-gray-400 uppercase">
-                                <span>Goal</span>
-                                <span>82%</span>
+                                <span>Offer Valid Until</span>
+                                <span>Feb 3</span>
                             </div>
                             <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                                <div className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 w-[82%] rounded-full"></div>
+                                <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 w-[60%] rounded-full"></div>
                             </div>
                         </div>
                     </div>
+
 
                     {/* Chart Background Decoration */}
                     <div className="absolute bottom-0 left-0 right-0 h-96 pointer-events-none transition-transform duration-1000 group-hover:scale-[1.02] origin-bottom">
@@ -141,7 +146,7 @@ const FeaturesHighlight: React.FC = () => {
 
                                     {/* Tooltip */}
                                     <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-gray-900 text-xs font-bold px-3 py-1.5 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                        New High: $12,400
+                                        Savings: GHS 696
                                         <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-white rotate-45"></div>
                                     </div>
                                 </div>
@@ -151,7 +156,7 @@ const FeaturesHighlight: React.FC = () => {
                 </div>
 
             </div>
-        </section>
+        </section >
     );
 };
 
