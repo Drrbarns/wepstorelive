@@ -84,7 +84,7 @@ const FeaturesHighlight: React.FC = () => {
                             Launch your store for just <br /> <span className="text-emerald-400">GHS 504.</span>
                         </h3>
                         <p className="text-gray-400 mb-8 text-lg leading-relaxed">
-                            Get our full Starter Plan (normally GHS 1,200) at 58% OFF. Includes free domain, hosting, and everything you need to start selling today.
+                            Get our full Starter Plan (normally GHS 1,200) at 58% OFF. Includes secure hosting and everything you need to start selling today.
                         </p>
                         <button className="bg-emerald-500 text-white px-8 py-3.5 rounded-full font-bold flex items-center gap-2 text-sm hover:bg-emerald-600 transition-all transform group-hover:translate-x-1 shadow-lg shadow-emerald-500/20">
                             Get Starter Plan <ArrowRight size={18} />
