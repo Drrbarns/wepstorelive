@@ -67,11 +67,7 @@ const LaunchOfferPage: React.FC = () => {
         <div className="min-h-screen bg-slate-50 font-sans text-gray-900">
 
             {/* Navbar Placeholder/Logo */}
-            <nav className="absolute top-0 w-full p-6 flex justify-between items-center z-10 max-w-7xl mx-auto left-0 right-0">
-                <div className="font-display font-bold text-2xl tracking-widest uppercase">
-                    WEP<span className="text-primary">STORE</span>
-                </div>
-            </nav>
+
 
             <div className="flex flex-col lg:flex-row min-h-screen">
 
@@ -81,7 +77,7 @@ const LaunchOfferPage: React.FC = () => {
                     <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-[100px] opacity-50 -translate-y-1/2 translate-x-1/3"></div>
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500 rounded-full blur-[80px] opacity-40 translate-y-1/3 -translate-x-1/4"></div>
 
-                    <div className="relative z-10 max-w-lg mx-auto lg:mx-0">
+                    <div className="relative z-10 max-w-lg mx-auto lg:mx-0 mt-20">
                         <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-semibold mb-8 backdrop-blur-sm">
                             <Star size={16} className="text-yellow-400 fill-yellow-400" />
                             Exclusive Launch Offer
@@ -122,7 +118,7 @@ const LaunchOfferPage: React.FC = () => {
 
                 {/* Right Column: Form */}
                 <div className="lg:w-1/2 bg-white p-8 lg:p-16 flex flex-col justify-center">
-                    <div className="max-w-md mx-auto w-full">
+                    <div className="max-w-md mx-auto w-full mt-20">
                         <div className="mb-8">
                             <h2 className="text-3xl font-bold text-gray-900 mb-2">Create your account</h2>
                             <p className="text-gray-500">Fill in your details to secure this offer.</p>
