@@ -1,7 +1,7 @@
 import React from 'react';
 import { Check, Zap, Shield, TrendingUp, Users } from 'lucide-react';
-import Pricing from '../components/Pricing';
-import { EXTERNAL_LINKS } from '../constants';
+import Pricing from '../frontend-components/Pricing';
+import { EXTERNAL_LINKS } from '../frontend-constants';
 
 const PricingPage: React.FC = () => {
   return (
