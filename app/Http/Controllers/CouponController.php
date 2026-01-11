@@ -90,56 +90,69 @@ class CouponController extends BaseController
      */
     public function validate(Request $request)
     {
-        $request->validate([
-            'coupon_code' => 'required|string',
-            'plan_id' => 'required|integer',
-            'amount' => 'required|numeric|min:0'
-        ]);
+        try {
+            $request->validate([
+                'coupon_code' => 'required|string',
+                'plan_id' => 'required|integer',
+                'amount' => 'required|numeric|min:0'
+            ]);
 
-        $coupon = Coupon::whereRaw('LOWER(code) = ?', [strtolower($request->coupon_code)])
-            ->where('status', 1)
-            ->first();
+            $coupon = Coupon::whereRaw('LOWER(code) = ?', [strtolower($request->coupon_code)])
+                ->where('status', 1)
+                ->first();
 
-        if (!$coupon) {
+            if (!$coupon) {
+                return response()->json([
+                    'valid' => false,
+                    'message' => __('Invalid or inactive coupon code')
+                ], 400);
+            }
+
+            // Check if coupon is expired
+            if ($coupon->expiry_date && $coupon->expiry_date < now()) {
+                return response()->json([
+                    'valid' => false,
+                    'message' => __('Coupon has expired')
+                ], 400);
+            }
+
+            // Check usage limit
+            if ($coupon->use_limit_per_coupon && $coupon->used_count >= $coupon->use_limit_per_coupon) {
+                return response()->json([
+                    'valid' => false,
+                    'message' => __('Coupon usage limit exceeded')
+                ], 400);
+            }
+
+            // Check minimum amount
+            if ($coupon->minimum_spend && $request->amount < $coupon->minimum_spend) {
+                return response()->json([
+                    'valid' => false,
+                    'message' => __('Minimum spend requirement not met')
+                ], 400);
+            }
+
+            return response()->json([
+                'valid' => true,
+                'coupon' => [
+                    'id' => $coupon->id,
+                    'code' => $coupon->code,
+                    'type' => $coupon->type,
+                    'value' => $coupon->discount_amount
+                ]
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Coupon validation error: ' . $e->getMessage(), [
+                'coupon_code' => $request->coupon_code ?? null,
+                'plan_id' => $request->plan_id ?? null,
+                'trace' => $e->getTraceAsString()
+            ]);
+
             return response()->json([
                 'valid' => false,
-                'message' => __('Invalid or inactive coupon code')
-            ], 400);
+                'message' => __('An error occurred while validating the coupon')
+            ], 500);
         }
-
-        // Check if coupon is expired
-        if ($coupon->expiry_date && $coupon->expiry_date < now()) {
-            return response()->json([
-                'valid' => false,
-                'message' => __('Coupon has expired')
-            ], 400);
-        }
-
-        // Check usage limit
-        if ($coupon->use_limit_per_coupon && $coupon->used_count >= $coupon->use_limit_per_coupon) {
-            return response()->json([
-                'valid' => false,
-                'message' => __('Coupon usage limit exceeded')
-            ], 400);
-        }
-
-        // Check minimum amount
-        if ($coupon->minimum_spend && $request->amount < $coupon->minimum_spend) {
-            return response()->json([
-                'valid' => false,
-                'message' => __('Minimum spend requirement not met')
-            ], 400);
-        }
-
-        return response()->json([
-            'valid' => true,
-            'coupon' => [
-                'id' => $coupon->id,
-                'code' => $coupon->code,
-                'type' => $coupon->type,
-                'value' => $coupon->discount_amount
-            ]
-        ]);
     }
 
     /**

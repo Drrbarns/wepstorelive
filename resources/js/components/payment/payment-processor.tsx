@@ -126,6 +126,7 @@ export function PaymentProcessor({
         setAppliedCoupon(null);
       }
     } catch (error) {
+      console.error('Coupon validation error:', error);
       toast.error(t('Failed to validate coupon'));
       setAppliedCoupon(null);
     } finally {
