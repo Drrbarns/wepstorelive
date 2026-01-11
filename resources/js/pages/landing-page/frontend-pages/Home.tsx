@@ -1,17 +1,17 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import FeaturesHighlight from '../components/FeaturesHighlight';
-import MobileMoneyHighlight from '../components/MobileMoneyHighlight';
-import FeaturesGrid from '../components/FeaturesGrid';
-import Clients from '../components/Clients';
-import MultiStoreFeatures from '../components/MultiStoreFeatures';
-import WhyChooseUs from '../components/WhyChooseUs';
-import VideoSection from '../components/VideoSection';
-import Pricing from '../components/Pricing';
-import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
-import Team from '../components/Team';
-import FooterCTA from '../components/FooterCTA';
+import Hero from '../frontend-components/Hero';
+import FeaturesHighlight from '../frontend-components/FeaturesHighlight';
+import MobileMoneyHighlight from '../frontend-components/MobileMoneyHighlight';
+import FeaturesGrid from '../frontend-components/FeaturesGrid';
+import Clients from '../frontend-components/Clients';
+import MultiStoreFeatures from '../frontend-components/MultiStoreFeatures';
+import WhyChooseUs from '../frontend-components/WhyChooseUs';
+import VideoSection from '../frontend-components/VideoSection';
+import Pricing from '../frontend-components/Pricing';
+import Testimonials from '../frontend-components/Testimonials';
+import FAQ from '../frontend-components/FAQ';
+import Team from '../frontend-components/Team';
+import FooterCTA from '../frontend-components/FooterCTA';
 
 const Home: React.FC = () => {
   return (
@@ -65,5 +65,6 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
 
 

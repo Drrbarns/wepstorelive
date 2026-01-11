@@ -295,3 +295,4 @@ export default function FeaturesSection({ data, setData, errors, handleInputChan
     </div>
   );
 }
+

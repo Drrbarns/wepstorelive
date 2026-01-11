@@ -323,3 +323,4 @@ export default function Footer({ settings, sectionData = {}, brandColor = '#3b82
     </footer>
   );
 }
+

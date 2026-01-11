@@ -465,3 +465,4 @@ export default function AboutSection({ data, setData, errors, handleInputChange,
     </div>
   );
 }
+

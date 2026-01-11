@@ -154,3 +154,4 @@ export default function TeamSection({ settings, sectionData, brandColor = '#3b82
     </section>
   );
 }
+

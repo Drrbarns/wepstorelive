@@ -1,6 +1,6 @@
 import React from 'react';
 import { HelpCircle, Search } from 'lucide-react';
-import FAQ from '../components/FAQ';
+import FAQ from '../frontend-components/FAQ';
 
 const FAQPage: React.FC = () => {
   return (
@@ -131,5 +131,6 @@ const FAQPage: React.FC = () => {
 };
 
 export default FAQPage;
+
 
 

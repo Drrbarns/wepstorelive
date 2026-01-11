@@ -92,3 +92,4 @@ export default function ScreenshotsSection({ brandColor = '#3b82f6', settings, s
     </section>
   );
 }
+

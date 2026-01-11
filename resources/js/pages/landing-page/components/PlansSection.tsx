@@ -353,3 +353,4 @@ function PlansSection({ plans, settings, sectionData, brandColor = '#3b82f6' }: 
 }
 
 export default PlansSection;
+

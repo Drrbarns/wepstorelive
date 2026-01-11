@@ -273,3 +273,4 @@ export default function Header({ settings, sectionData, customPages = [], brandC
     </header>
   );
 }
+

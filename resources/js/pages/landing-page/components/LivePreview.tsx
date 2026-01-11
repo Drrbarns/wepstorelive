@@ -230,3 +230,4 @@ export default function LivePreview({ data, activeSection }: LivePreviewProps) {
     </div>
   );
 }
+

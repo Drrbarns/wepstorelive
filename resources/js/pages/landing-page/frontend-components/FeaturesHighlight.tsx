@@ -156,3 +156,4 @@ const FeaturesHighlight: React.FC = () => {
 };
 
 export default FeaturesHighlight;
+

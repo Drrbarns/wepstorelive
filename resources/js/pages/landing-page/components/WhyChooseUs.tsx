@@ -134,3 +134,4 @@ export default function WhyChooseUs({ settings, sectionData, brandColor = '#3b82
     </section>
   );
 }
+

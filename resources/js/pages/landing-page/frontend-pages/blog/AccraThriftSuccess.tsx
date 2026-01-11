@@ -134,3 +134,4 @@ const AccraThriftSuccess: React.FC = () => {
 export default AccraThriftSuccess;
 
 
+

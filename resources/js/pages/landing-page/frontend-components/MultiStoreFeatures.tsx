@@ -54,3 +54,4 @@ const MultiStoreFeatures: React.FC = () => {
 };
 
 export default MultiStoreFeatures;
+

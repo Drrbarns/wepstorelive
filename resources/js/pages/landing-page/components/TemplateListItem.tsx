@@ -38,3 +38,4 @@ export default function TemplateListItem({ template, onRemove }: TemplateListIte
     </div>
   );
 }
+

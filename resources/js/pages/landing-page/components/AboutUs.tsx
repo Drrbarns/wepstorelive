@@ -162,3 +162,4 @@ export default function AboutUs({ settings, sectionData, brandColor = '#3b82f6' 
     </section>
   );
 }
+

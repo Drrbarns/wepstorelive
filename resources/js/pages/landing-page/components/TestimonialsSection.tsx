@@ -188,3 +188,4 @@ export default function TestimonialsSection({ testimonials, settings, sectionDat
     </section>
   );
 }
+

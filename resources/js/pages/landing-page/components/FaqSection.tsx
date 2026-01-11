@@ -139,3 +139,4 @@ export default function FaqSection({ faqs, settings, sectionData, brandColor = '
     </section>
   );
 }
+

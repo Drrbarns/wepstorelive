@@ -266,3 +266,4 @@ export default function ContactSection({ flash, settings, sectionData, brandColo
     </section>
   );
 }
+

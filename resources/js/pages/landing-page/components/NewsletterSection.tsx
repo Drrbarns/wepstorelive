@@ -131,3 +131,4 @@ export default function NewsletterSection({ flash, settings, sectionData, brandC
     </section>
   );
 }
+

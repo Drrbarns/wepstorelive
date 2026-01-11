@@ -172,3 +172,4 @@ export default function HeroSection({ settings, sectionData, brandColor = '#3b82
     </section>
   );
 }
+

@@ -400,3 +400,4 @@ export default function TemplatesSection({ settings, sectionData, brandColor }: 
     </section>
   );
 }
+

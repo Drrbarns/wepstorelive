@@ -131,3 +131,4 @@ export default function FeaturesSection({ settings, sectionData, brandColor = '#
     </section>
   );
 }
+

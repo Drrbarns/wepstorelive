@@ -145,3 +145,4 @@ export default function ContactSection({ data, setData, errors, handleInputChang
     </div>
   );
 }
+
