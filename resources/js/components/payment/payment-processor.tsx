@@ -107,7 +107,9 @@ export function PaymentProcessor({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
+          'Accept': 'application/json',
+          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
+          'X-Requested-With': 'XMLHttpRequest'
         },
         body: JSON.stringify({
           coupon_code: couponCode,
@@ -115,6 +117,13 @@ export function PaymentProcessor({
           amount: originalPrice
         })
       });
+
+      // Handle authentication/session issues
+      if (response.status === 401 || response.status === 419) {
+        toast.error(t('Session expired. Please refresh the page and try again.'));
+        setAppliedCoupon(null);
+        return;
+      }
 
       const data = await response.json();
 
@@ -127,7 +136,7 @@ export function PaymentProcessor({
       }
     } catch (error) {
       console.error('Coupon validation error:', error);
-      toast.error(t('Failed to validate coupon'));
+      toast.error(t('Failed to validate coupon. Please try again.'));
       setAppliedCoupon(null);
     } finally {
       setCouponLoading(false);
