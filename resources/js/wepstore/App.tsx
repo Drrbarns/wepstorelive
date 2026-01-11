@@ -15,6 +15,7 @@ import Partners from './pages/Partners';
 import Developers from './pages/Developers';
 import Payments from './pages/Payments';
 import Affiliate from './pages/Affiliate';
+import LaunchOfferPage from './pages/LaunchOfferPage';
 // Blog Posts
 import ScalingKioskToDigital from './pages/blog/ScalingKioskToDigital';
 import Top5PaymentGateways from './pages/blog/Top5PaymentGateways';
@@ -60,6 +61,7 @@ const App: React.FC = () => {
             <Route path="/developers" element={<Developers />} />
             <Route path="/payments" element={<Payments />} />
             <Route path="/affiliate" element={<Affiliate />} />
+            <Route path="/launch-offer" element={<LaunchOfferPage />} />
             {/* Blog Posts */}
             <Route path="/blog/scaling-kiosk-to-digital" element={<ScalingKioskToDigital />} />
             <Route path="/blog/top-5-payment-gateways" element={<Top5PaymentGateways />} />

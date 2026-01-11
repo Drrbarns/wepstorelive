@@ -65,6 +65,7 @@ use Inertia\Inertia;
 
 // Main landing page
 Route::get('/', [LandingPageController::class, 'show'])->name('home');
+Route::get('/launch-offer', [LandingPageController::class, 'show'])->name('launch-offer');
 
 // Cart API routes
 Route::prefix('api/cart')->group(function () {
