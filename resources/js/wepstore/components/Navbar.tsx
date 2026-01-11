@@ -5,12 +5,15 @@ import { COMPANY, EXTERNAL_LINKS } from '../constants';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolledState, setScrolledState] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Force "scrolled" style (glass effect) on Launch Offer page
+  const isScrolled = scrolledState || location.pathname === '/launch-offer';
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrolledState(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
